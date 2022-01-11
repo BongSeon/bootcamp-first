@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "xabikos.javascriptsnippets",
+    "dbaeumer.vscode-eslint",
+    "abusaidm.html-snippets",
+    "ritwickdey.liveserver",
+    "esbenp.prettier-vscode",
+    "dannyconnell.make-apps-theme",
+    "mhutchie.git-graph"
+  ]
+}
