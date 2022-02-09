@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // String 객체
+      let txt = "javascript";
+
+      //   let obj = {
+      //       fun1: function() {
+
+      //       },
+      //       fun2 : function() {
+
+      //       },
+      //       indexOf: function(str){
+
+      //       },
+      //       length: 10
+
+      //   }
+
+      //   console.log(txt.length);
+      //indexOf()
+      let str = "Welcome Jeju!";
+      console.log(str.indexOf("e"));
+      let tel = "010-0000-0000";
+      let tel2 = "01000000000";
+      console.log(tel2.indexOf("-"));
+      if (tel2.indexOf("-") === -1) {
+      }
+
+      //lastIndexOf()
+      console.log(str.lastIndexOf("e"));
+
+      // slice()
+      console.log(str.slice(8, 12));
+      console.log(str.slice(str.indexOf("Jeju"), 12));
+      console.log(str.slice(8));
+      console.log(str.slice(-5, -1));
+
+      let numberFormat = "$#,###.##";
+      let numberFormat2 = "#,###";
+      let numberFormat3 = "#.###,##";
+      let percentFormat = "#,###.##%";
+
+      let amount = 31234220;
+      let rate = 34.5;
+
+      console.log(percentFormat.slice(-1));
+
+      if (percentFormat.slice(-1) === "%") {
+      }
+
+      // substring()
+      console.log(str.substring(8, 12));
+      console.log(
+        percentFormat.substring(percentFormat.length - 1, percentFormat.length)
+      );
+      //   if(percentFormat.substring(percentFormat.length-1, percentFormat.length))
+
+      //   $3,400
+
+      // substr()
+      // 시작인덱스, 길이
+      let date = "20220125";
+      let year = date.slice(0, 4); // date.substring(0,4)
+      let month = date.slice(4, 6); // date.substring(4,6)
+      let day = date.slice(6, 8); // date.substring(6,8)
+
+      year = date.substr(0, 4);
+      month = date.substr(4, 2);
+      day = date.substr(6, 2);
+
+      console.log(year);
+      console.log(month);
+      console.log(day);
+
+      //  replace()
+      str = "Welcome Jeju! Jeju!";
+      console.log(str.replace("Jeju", "Seoul"));
+
+      // 정규식
+      //
+      console.log(str.replace(/Jeju/gi, "Seoul"));
+
+      // toUpperCase()
+      console.log(str.toUpperCase());
+
+      // toLowerCase()
+      console.log(str.toLowerCase());
+
+      // concat()
+      let txt1 = "Hello";
+      let txt2 = "World";
+      let txt3 = txt1 + " " + txt2;
+      let txt4 = txt1.concat(" ", txt2);
+      console.log(txt4);
+
+      // trim()
+      str = "       승원    "; //고승원, 강승원
+      console.log(str);
+      console.log(str.trim());
+
+      let name = "고 승 원";
+      console.log(name.replace(/\s/g, ""));
+
+      // padStart(), padEnd()
+      str = "155"; // 4자리
+      // 대학학번 - 년도 2자리 + 학과번호 2자리 + 입학순서(이름 가나다순) 4자리 = 8자리
+      // 22031256
+
+      // console.log(str.padStart(4, "0"));
+      // while (str.length < 4) {
+      //   str = "0" + str;
+      // }
+
+      // console.log(str);
+
+      console.log(str.padEnd(4, "0"));
+
+      // charAt()
+      str = "A0001"; //Admin 관리자
+      // M
+      // 12
+
+      console.log(str.charAt(0));
+      // str.substring(0,1);
+      // str.substr(0,1);
+      // str.slice(0,1);
+
+      // charCodeAt()
+      console.log(str.charCodeAt(0));
+
+      // split()
+      let tags = "#개발자의품격#웹개발#부트캠프#자바스크립트";
+      let email = "a@gmail.com,b@gmail.com,c@gmail.com";
+      let emails = email.split(",");
+      console.log(emails);
+      console.log(tags.split("#"));
+      date = "2022-01-26";
+      dates = date.split("-");
+      year = dates[0];
+      month = dates[1];
+      day = dates[2];
+      console.log(dates);
+
+      //startsWith(), endsWith()
+      let url = "http://website.com";
+      console.log(url.startsWith("http://"));
+
+      let file = "abc.pdf";
+      console.log(file.endsWith(".pdf"));
+    </script>
+  </body>
+</html>

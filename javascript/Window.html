@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="doDelete();">삭제</button>
+    <button onclick="stop();">중지</button>
+    <table>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>상세보기</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>홍길동</td>
+          <td><button onclick="openUserDetail('00001');">상세보기</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      //   alert("이것은 경고창입니다.");
+      function doDelete() {
+        // const r = confirm("정말 삭제하시겠습니까?");
+        // console.log(r);
+
+        let pass = prompt("비밀번호를 입력하세요.");
+
+        if (pass === "1234") {
+          if (confirm("정말 삭제하시겠습니까?")) {
+            // 삭제 로직
+            console.log("삭제가 실행됩니다.");
+          }
+        } else {
+          alert("비밀번호가 맞지 않습니다.");
+        }
+      }
+
+      function openUserDetail(userId) {
+        window.open("https://naver.com");
+      }
+
+      // setTimeout(), clearTimeout()
+      let myExec = setTimeout(function () {
+        console.log("5초 후에 출력됩니다.");
+      }, 5000);
+
+      function stop() {
+        clearTimeout(myExec);
+        clearInterval(myExec2);
+      }
+
+      // setInterval, clearInterval
+
+      let myExec2 = setInterval(function () {
+        console.log("3초 마다 실행");
+      }, 3000);
+    </script>
+  </body>
+</html>

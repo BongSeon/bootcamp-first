@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // JSON - Javascript Object Notation
+      let person1 = {
+        name: "홍길동",
+        age: 22,
+        tel: "010-0000-0000",
+        isAdult: true,
+        siGunGu: "",
+        grade: [],
+      };
+
+      let arr = [3, 4, 5, 6, 7];
+      console.log(arr);
+      console.log(JSON.stringify(arr)); // "[3,4,5,6,7]"
+
+      console.log(JSON.parse("[3,4,5,6,7]"));
+
+      //   {
+      //     "name": "홍길동",
+      //     "age": 22,
+      //     "tel": "010-0000-0000",
+      //     "isAdult": true,
+      //     "siGunGu": "",
+      //     "grade": [],
+      //   }
+    </script>
+  </body>
+</html>

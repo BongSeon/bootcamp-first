@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function convertDateFormat(format = "YYYY-MM-DD") {
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = (today.getMonth() + 1).toString().padStart(2, 0);
+        let day = today.getDate().toString().padStart(2, 0);
+
+        let formatDate = format
+          .replace("YYYY", year)
+          .replace("MM", month)
+          .replace("DD", day);
+
+        console.log(formatDate);
+      }
+
+      convertDateFormat();
+      //   convertDateFormat("MM-DD-YYYY");
+      //   convertDateFormat("DD-MM-YYYY");
+    </script>
+  </body>
+</html>

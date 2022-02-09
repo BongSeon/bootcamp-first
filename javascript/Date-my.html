@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Date 객체 - 날짜.
+      let now = new Date();
+      console.log(now);
+
+      console.log(now.getFullYear());
+      console.log(now.getMonth());
+      console.log(now.getDate());
+      console.log(now.getDay());
+      console.log(now.getHours());
+      console.log(now.getMinutes());
+      console.log(now.getSeconds());
+      console.log(now.getMilliseconds());
+
+      console.log(now.getTime());
+      // 밀리세컨드 초
+      // 1970년 1월 1일 기준으로 지난 값
+      // 콘솔에서 Date.now() 한 값이랑
+      // now.getTime()한 값이랑 동일한 값이 나온다
+
+      let date = new Date(1643202151365);
+      console.log(date);
+
+      // 7일 전
+      function getIntvervalDate(day) {
+        let now = new Date();
+        let dayMilliseconds = 60 * 60 * 24 * 1000; //하루치 밀리세컨드
+
+        let intervalDate = now.getTime() + dayMilliseconds * day;
+        return new Date(intervalDate);
+      }
+      // 7일전 출력
+      console.log(getIntvervalDate(-7));
+    </script>
+  </body>
+</html>

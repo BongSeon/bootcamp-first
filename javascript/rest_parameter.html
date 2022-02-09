@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function sum(n1, n2) {
+        return n1 + n2;
+      }
+
+      function sum2(n1, n2, n3) {
+        return n1 + n2 + n3;
+      }
+
+      function sum3(n1, n2, n3, n4) {
+        return n1 + n2 + n3 + n4;
+      }
+
+      function add(...nums) {
+        let total = 0;
+        for (const n of nums) {
+          total += n;
+        }
+
+        return total;
+      }
+
+      console.log(add(2, 3));
+      console.log(add(2, 3, 5));
+      console.log(add(2, 3, 5, 7));
+      console.log(add(2, 3, 5, 7, 457, 2, 1, 4));
+
+      console.log(sum(5, 7));
+    </script>
+  </body>
+</html>

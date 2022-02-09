@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/common.js"></script>
+  </head>
+  <body>
+    <script>
+      let name = "고 승 원";
+      // console.log(name.replace(/\s/g, ""));
+
+      // function replaceSpace(str) {
+      //   return str.replace(/\s/g, "");
+      // }
+
+      // console.log(replaceSpace(name));
+      // String.prototype.replaceSpace = function () {
+      //   return this.replace(/\s/g, "");
+      // };
+
+      console.log(name.$replaceSpace());
+    </script>
+  </body>
+</html>

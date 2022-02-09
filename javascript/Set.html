@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Set, Map 객체
+
+      //
+
+      let foods = [
+        "햄버거",
+        "김치찌개",
+        "된장찌개",
+        "제육볶음",
+        "김치찌개",
+        "햄버거",
+      ];
+
+      let oFoods = {};
+      //   for (const food of foods) {
+      //     oFoods[food] = "";
+      //   }
+      foods.forEach(function (food) {
+        oFoods[food] = "";
+      });
+
+      let uniqueFoods = [];
+
+      for (const foodName in oFoods) {
+        uniqueFoods.push(foodName);
+      }
+
+      console.log(uniqueFoods);
+
+      //   for(const foodName of uniqueFoods) {
+      //       if(foodName === "김치찌개") {
+
+      //       }
+      //   }
+
+      // Set 객체
+      // 배열처럼 데이터의 집합.
+      // 순서가 없어요.
+      // value 값이 무조건 유일한 값만 유지.
+
+      let foodSet = new Set();
+      foodSet.add("햄버거");
+      foodSet.add("김치찌개");
+      foodSet.add("된장찌개");
+      foodSet.add("제육볶음");
+      foodSet.add("김치찌개"); // 저장되지않어요.
+      foodSet.add("햄버거"); // 저장되지않어요.
+
+      console.log(foodSet.has("김치찌개"));
+      foodSet.delete("김치찌개");
+
+      //   foodSet.clear();
+
+      foodSet.forEach(function (food) {
+        console.log(food);
+      });
+    </script>
+  </body>
+</html>

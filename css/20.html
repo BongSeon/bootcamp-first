@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Who Am I</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+      }
+      header {
+        background-color: khaki;
+        text-align: center;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .navbar {
+        display: flex;
+        position: sticky;
+        top: 0;
+        background-color: #444;
+      }
+      .navbar a {
+        color: white;
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        text-decoration: none;
+      }
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* width: 30%; */
+      }
+      .side {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(211, 211, 211);
+        padding: 10px;
+        width: 30%;
+      }
+      .main {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      .image {
+        padding: 10px;
+        width: 100%;
+        height: 100px;
+        background-color: #bbb;
+      }
+      @media screen and (max-width: 700px) {
+        .row,
+        .navbar {
+          flex-direction: column;
+        }
+        .side,
+        .main {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>Who Am I</div>
+    </header>
+    <nav class="navbar">
+      <a href="">메뉴1</a>
+      <a href="">메뉴2</a>
+      <a href="">메뉴3</a>
+      <a href="">메뉴4</a>
+      <a href="#section5">메뉴5</a>
+    </nav>
+    <div class="row">
+      <aside class="side">
+        <h2>About</h2>
+        <div class="image">image</div>
+        <h2>Skills</h2>
+        <p>Javascript, Vue, 반응형 웹 디자인</p>
+        <div class="image">image</div>
+      </aside>
+      <main class="main">
+        <section>
+          <h2>프로젝트 1</h2>
+          <h5>2021년 2월</h5>
+          <div class="image">image</div>
+        </section>
+        <section>
+          <h2>프로젝트 1</h2>
+          <h5>2021년 2월</h5>
+          <div class="image">image</div>
+        </section>
+        <section>
+          <h2>프로젝트 1</h2>
+          <h5>2021년 2월</h5>
+          <div class="image">image</div>
+        </section>
+        <section>
+          <h2>프로젝트 1</h2>
+          <h5>2021년 2월</h5>
+          <div class="image">image</div>
+        </section>
+        <section id="section5">
+          <h2>프로젝트 5</h2>
+          <h5>2021년 2월</h5>
+          <div class="image">image</div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

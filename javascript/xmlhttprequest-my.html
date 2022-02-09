@@ -1,0 +1,101 @@
+// 여기서부터 json-server 설치하고 진행
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getData();">조회</button>
+    <button onclick="postData();">생성</button>
+    <button onclick="putData();">수정</button>
+    <button onclick="deleteData();">삭제</button>
+    <script>
+      // Asynchronous JavaScript and XML
+      // 비동기 통신 -
+      // 동기 통신
+      // XMLHttpRequest - Ajax
+      // jquery
+      // fetch
+      // axios
+
+      // HTTP method
+      // GET - 리소스 요청
+      // POST - 리소스 생성
+      // PUT - 리소스 수정
+      // PATCH - 리소스 일부 수정
+      // DELETE - 리소스 삭제
+
+      function getData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:3000/posts");
+        xhr.setRequestHeader("content-type", "application/json");
+        xhr.send();
+
+        xhr.onload = () => {
+          //   console.log(xhr);
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      function postData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost:3000/posts");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        const data = { title: "xmlhttprequest", author: "jone doe" };
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = () => {
+          if (xhr.status === 201) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      function putData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("PUT", "http://localhost:3000/posts/2");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        const data = { title: "javascript", author: "jeremy" };
+        xhr.send(JSON.stringify(data));
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      function deleteData() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("DELETE", "http://localhost:3000/posts/2");
+        xhr.setRequestHeader("content-type", "application/json;charset=UTF-8");
+        xhr.send();
+
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const res = JSON.parse(xhr.response);
+            console.log(res);
+          } else {
+            console.log(xhr.status, xhr.statusText);
+          }
+        };
+      }
+
+      //fetch
+    </script>
+  </body>
+</html>

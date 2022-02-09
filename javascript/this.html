@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="myFunction2(this)">클릭</button>
+
+    <select name="" id="" onchange="myFunction2(this)">
+      <option value="1">A</option>
+      <option value="2">B</option>
+      <option value="3">C</option>
+    </select>
+    <script>
+      //   console.log(this);
+
+      function myFunction() {
+        console.log(this);
+      }
+
+      function myFunction2(obj) {
+        console.log(obj);
+      }
+
+      myFunction();
+
+      let person = {
+        firstName: "John",
+        lastName: "Doe",
+        getFullName: function () {
+          return this.firstName + " " + this.lastName;
+        },
+      };
+
+      console.log(person.getFullName());
+    </script>
+  </body>
+</html>
