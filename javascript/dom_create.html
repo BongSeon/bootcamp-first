@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .col-4 {
+        flex: 33.3333%;
+        padding: 5px;
+      }
+      .col-8 {
+        flex: 66.6666%;
+        padding: 5px;
+      }
+
+      input.form-control {
+        width: 100%;
+        padding: 5px 10px;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .alert {
+        color: rgb(225, 114, 114);
+        margin-top: 2px;
+      }
+      #address {
+        margin-top: 6px;
+      }
+
+      @media screen and (max-width: 768px) {
+        .row {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-4">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-8">
+        <input type="text" name="" id="name" class="form-control" />
+      </div>
+      <div class="col-4">
+        <label for="gender">Gender</label>
+      </div>
+      <div class="col-8">
+        <input type="radio" name="gender" id="male" checked />
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" />
+        <label for="female">여자</label>
+      </div>
+      <div class="col-4">
+        <label for="company">Company</label>
+      </div>
+      <div class="col-8">
+        <input
+          type="text"
+          name=""
+          id="company"
+          class="form-control"
+          onkeyup="checkEnter(event, 'email')"
+          ;
+        />
+      </div>
+      <div class="col-4">
+        <label for="email">Email</label>
+      </div>
+      <div class="col-8">
+        <input
+          type="text"
+          name=""
+          id="email"
+          class="form-control"
+          onblur="checkEmail();"
+        />
+        <div id="emailMsg" class="alert" style="display: none">
+          올바른 형식의 이메일을 입력하세요.
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="phone">Phone</label>
+      </div>
+      <div class="col-8">
+        <input
+          type="text"
+          name=""
+          id="phone"
+          class="form-control"
+          onblur="checkPhone();"
+          onkeyup="checkEnterForPhone(event)"
+        />
+        <div id="phoneMsg" class="alert" style="display: none">
+          올바른 형식의 폰을 입력하세요.
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="adress">Adress</label>
+      </div>
+      <div class="col-8">
+        <button onclick="openDaumAPI()">주소찾기</button>
+        <input type="text" name="" id="zonecode" style="width: 80px" readonly />
+        <input type="text" name="" id="address" class="form-control" />
+      </div>
+    </div>
+    <div class="text-center">
+      <button onclick="doReset();">초기화</button>
+      <button onclick="goToList();">돌아가기</button>
+      <button onclick="doCreate();">저장</button>
+    </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+      async function doCreate() {
+        const name = document.querySelector("#name").value.trim();
+        const gender = document.querySelector("[name=gender]:checked").value;
+        const company = document.querySelector("#company").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const phone = document.querySelector("#phone").value.trim();
+        const address = document.querySelector("#address").value.trim();
+        // console.log(name);
+        // console.log(gender);
+        // console.log(company);
+        // console.log(email);
+        // console.log(phone);
+        // console.log(address);
+
+        if (name === "") return alert("이름을 입력하세요.");
+        if (company === "") return alert("회사명을 입력하세요.");
+
+        const regexpEmail = /^([a-z]+\d*)+(\.?[a-z]*)+@[a-z]+(\.[a-z]{2,3})+$/;
+        if (!regexpEmail.test(email)) {
+          return alert("올바른 형식의 Email을 입력하세요.");
+        }
+
+        const regexpPhone = /^010-\d{3,4}-\d{4}$/;
+        if (!regexpPhone.test(phone)) {
+          return alert("올바른 형식의 Phone을 입력하세요.");
+        }
+
+        if (address === "") return alert("주소를 입력하세요.");
+
+        if (confirm("정말 저장하시겠습니까?")) {
+          const res = await fetch("http://localhost:3000/customers", {
+            method: "POST",
+            body: JSON.stringify({
+              name,
+              gender,
+              company,
+              email,
+              phone,
+              address,
+            }),
+            headers: {
+              "content-type": "application/json;charset=UTF-8",
+            },
+          });
+          if (res.status === 201) {
+            alert("정상적으로 생성되었습니다.");
+            document.location.href = "dom.html";
+          } else {
+            alert("생성하지 못했습니다. 다시 시도하세요.");
+          }
+        }
+      }
+
+      function checkEmail() {
+        const email = document.querySelector("#email").value;
+        if (email !== "") {
+          const regexpEmail =
+            /^([a-z]+\d*)+(\.?[a-z]*)+@[a-z]+(\.[a-z]{2,3})+$/;
+          if (!regexpEmail.test(email)) {
+            document.querySelector("#emailMsg").style.display = "block";
+          } else {
+            document.querySelector("#emailMsg").style.display = "none";
+          }
+        } else {
+          document.querySelector("#emailMsg").style.display = "none";
+        }
+      }
+      function checkPhone() {
+        const phone = document.querySelector("#phone").value.trim();
+        if (phone !== "") {
+          const regexpPhone = /^010-\d{3,4}-\d{4}$/;
+          if (!regexpPhone.test(phone)) {
+            document.querySelector("#phoneMsg").style.display = "block";
+          } else {
+            document.querySelector("#phoneMsg").style.display = "none";
+          }
+        } else {
+          document.querySelector("#phoneMsg").style.display = "none";
+        }
+      }
+
+      function openDaumAPI() {
+        new daum.Postcode({
+          oncomplete: function (data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+            // 예제를 참고하여 다양한 활용법을 확인해 보세요.
+            console.log(data);
+            document.querySelector("#address").value = data.address;
+            document.querySelector("#zonecode").value = data.zonecode;
+          },
+        }).open();
+      }
+
+      function goToList() {
+        document.location.href = "dom.html";
+      }
+
+      function doReset() {
+        // document.location.reload(); // 이렇게 해도 된다.
+        document.querySelector("#name").value = "";
+        document.querySelector("#company").value = "";
+        document.querySelector("#email").value = "";
+        document.querySelector("#phone").value = "";
+        document.querySelector("#address").value = "";
+      }
+
+      function checkEnter() {
+        if (e.keyCode === 13) {
+          document.querySelector("#" + id).focus();
+        }
+      }
+
+      function checkEnterForPhone(e) {
+        if (e.keyCode === 13) {
+          openDaumAPI();
+        }
+      }
+    </script>
+  </body>
+</html>
