@@ -127,7 +127,7 @@
     <script>
       async function doCreate() {
         const name = document.querySelector("#name").value.trim();
-        const gender = document.querySelector("[name=gender]:checked").value;
+        const gender = document.querySelector("[name=gender]:checked").id;
         const company = document.querySelector("#company").value.trim();
         const email = document.querySelector("#email").value.trim();
         const phone = document.querySelector("#phone").value.trim();
@@ -231,7 +231,7 @@
         document.querySelector("#address").value = "";
       }
 
-      function checkEnter() {
+      function checkEnter(e) {
         if (e.keyCode === 13) {
           document.querySelector("#" + id).focus();
         }
