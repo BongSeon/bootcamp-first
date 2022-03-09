@@ -5,7 +5,7 @@
   </div>
   <div :style="style1">style바인딩 글씨는 red,폰트크기:30px</div>
   <div :style="style2">style바인딩 글씨는 darkgrey,폰트크기:25px</div>
-  <button @click=""></button>
+  <button @click="style2.color = 'blue'">색상바꾸기</button>
 </template>
 <script>
 export default {

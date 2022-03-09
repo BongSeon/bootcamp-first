@@ -19,7 +19,7 @@ export default {
   components: {},
   data() {
     return {
-      favoriteLang: ''
+      favoriteLang: 'HTML'
     }
   },
   setup() {},

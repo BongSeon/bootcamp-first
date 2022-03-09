@@ -122,6 +122,62 @@ const routes = [
       import(
         /* webpackChunkName: "event" */ '../views/2_event/EventChangeView.vue'
       )
+  },
+  {
+    path: '/event/key',
+    name: 'EventKeyView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "event" */ '../views/2_event/EventKeyView.vue'
+      )
+  },
+  {
+    path: '/extra/if',
+    name: 'RenderingIfView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "extra" */ '../views/3_extra/RenderingIfView.vue'
+      )
+  },
+  {
+    path: '/extra/show',
+    name: 'RenderingShowView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "extra" */ '../views/3_extra/RenderingShowView.vue'
+      )
+  },
+  {
+    path: '/extra/computed',
+    name: 'ComputedView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "extra" */ '../views/3_extra/ComputedView.vue'
+      )
+  },
+  {
+    path: '/extra/watch',
+    name: 'WatchView.vue',
+    component: () =>
+      import(/* webpackChunkName: "extra" */ '../views/3_extra/WatchView.vue')
+  },
+  {
+    path: '/reuse/page',
+    name: 'PageView.vue',
+    component: () =>
+      import(/* webpackChunkName: "reuse" */ '../views/4_reuse/PageView.vue')
+  },
+  {
+    path: '/reuse/list',
+    name: 'ListView.vue',
+    component: () =>
+      import(/* webpackChunkName: "reuse" */ '../views/4_reuse/ListView.vue')
+  },
+  {
+    path: '/reuse/slot',
+    name: 'SlotView.vue',
+    component: () =>
+      import(/* webpackChunkName: "reuse" */ '../views/4_reuse/SlotView.vue')
   }
 ]
 
