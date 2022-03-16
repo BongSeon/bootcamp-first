@@ -100,7 +100,8 @@ export default {
       this.$refs.smGrid.doPrint()
     },
     doExcel() {
-      this.$refs.smGrid.doExcel()
+      // this.$refs.smGrid.doExcel()
+      this.$ExcelFromTable(this.headers, this.drinkList, 'drinklist')
     }
   }
 }

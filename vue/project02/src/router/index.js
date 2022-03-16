@@ -178,6 +178,67 @@ const routes = [
     name: 'SlotView.vue',
     component: () =>
       import(/* webpackChunkName: "reuse" */ '../views/4_reuse/SlotView.vue')
+  },
+  {
+    path: '/reuse/parent',
+    name: 'ParentView.vue',
+    component: () =>
+      import(/* webpackChunkName: "reuse" */ '../views/4_reuse/ParentView.vue')
+  },
+  {
+    path: '/advanced/provide',
+    name: 'ProvideView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "advanced" */ '../views/5_advanced/ProvideView.vue'
+      )
+  },
+  {
+    path: '/advanced/directive',
+    name: 'CustomDirectiveView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "advanced" */ '../views/5_advanced/CustomDirectiveView.vue'
+      )
+  },
+  {
+    path: '/advanced/mixin',
+    name: 'MixinView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "advanced" */ '../views/5_advanced/MixinView.vue'
+      )
+  },
+  {
+    path: '/advanced/plugin',
+    name: 'PluginView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "advanced" */ '../views/5_advanced/PluginView.vue'
+      )
+  },
+  {
+    path: '/vuex/todo',
+    name: 'TodoView.vue',
+    component: () =>
+      import(/* webpackChunkName: "vuex" */ '../views/6_vuex/TodoView.vue')
+  },
+
+  {
+    path: '/test/animation/fade',
+    name: 'AnimationFadeView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "test" */ '../views/9_test/AnimationFadeView.vue'
+      )
+  },
+  {
+    path: '/test/animation/bounce',
+    name: 'AnimationBounceView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "test" */ '../views/9_test/AnimationBounceView.vue'
+      )
   }
 ]
 
