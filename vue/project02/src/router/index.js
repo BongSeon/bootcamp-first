@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+// import store from '../store'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -246,5 +247,24 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+// 3.16
+// 라우터변경되기 바로 직전에 실행되는 부분
+// router.beforeEach((to, from, next) => {
+//   // console.log('from:', from) // 어디에서 이동했는지
+//   // console.log('to:', to) // 어디로 이동하는지
+
+//   if (to.path === '/') {
+//     next()
+//   } else if (to.path === '/vuex/todo') {
+//     next()
+//   } else {
+//     if (store.getters['user/isLogin']) {
+//       next()
+//     } else {
+//       next('/vuex/todo')
+//     }
+//   }
+// })
 
 export default router
