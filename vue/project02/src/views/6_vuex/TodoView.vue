@@ -54,8 +54,7 @@ export default {
     login() {
       this.$store.commit('user/setUser', {
         name: 'aestas kwak',
-        email: 'aestas@gmail.com',
-        tel: '000-0000-0000'
+        email: 'aestas@gmail.com'
       })
     }
   }

@@ -1,9 +1,13 @@
 <template>
-  <div>MixinView</div>
-  <div>날짜 변환 20220314 -> 'YYYY-MM-DD'</div>
-  <div>{{ $convertDateFormat('20220314', 'YYYY-MM-DD') }}</div>
-  <div>날짜 변환 new Date() -> 'MM.DD.YYYY'</div>
-  <div>{{ $convertDateFormat(new Date(), 'MM.DD.YYYY') }}</div>
+  <div>
+    <div>MixinView</div>
+    <div>날짜 변환 20220314 -> 'YYYY-MM-DD'</div>
+    <div>{{ $convertDateFormat('20220314', 'YYYY-MM-DD') }}</div>
+    <div>날짜 변환 new Date() -> 'MM.DD.YYYY'</div>
+    <div>{{ $convertDateFormat(new Date(), 'MM.DD.YYYY') }}</div>
+    <hr />
+    <div>customers : log 확인</div>
+  </div>
 </template>
 
 <script>
@@ -16,7 +20,7 @@ export default {
   components: {},
   data() {
     return {
-      sampleData: ''
+      customers: []
     }
   },
   setup() {},
@@ -45,6 +49,7 @@ export default {
     async getCustomers() {
       // json-server 실행해야 동작함
       const customers = await this.$get('http://localhost:3000/customers')
+      this.customers = customers
       console.log(customers)
     }
   }

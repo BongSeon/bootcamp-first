@@ -1,12 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import store from '../store'
+import store from '../store'
 import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
 
 const routes = [
   {
     path: '/',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/home',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/login',
+    name: 'loginview',
+    component: LoginView
   },
   {
     path: '/about',
@@ -220,9 +231,43 @@ const routes = [
   },
   {
     path: '/vuex/todo',
-    name: 'TodoView.vue',
+    name: 'TodoView',
     component: () =>
       import(/* webpackChunkName: "vuex" */ '../views/6_vuex/TodoView.vue')
+  },
+  {
+    path: '/template/listtodetail',
+    name: 'ListToDetailView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/ListToDetailView.vue'
+      )
+  },
+  {
+    path: '/template/detail',
+    name: 'DetailView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/DetailView.vue'
+      )
+  },
+  ,
+  {
+    path: '/template/create',
+    name: 'CreateView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/CreateView.vue'
+      )
+  },
+  {
+    // 생성하는 페이지로 기능 합쳐서 구현할수도 있다
+    path: '/template/change',
+    name: 'ChangeView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/ChangeView.vue'
+      )
   },
 
   {
@@ -240,6 +285,14 @@ const routes = [
       import(
         /* webpackChunkName: "test" */ '../views/9_test/AnimationBounceView.vue'
       )
+  },
+  {
+    path: '/test/imgdynamic',
+    name: 'ImageDynamicBindingView.vue',
+    component: () =>
+      import(
+        /* webpackChunkName: "test" */ '../views/9_test/ImageDynamicBindingView.vue'
+      )
   }
 ]
 
@@ -250,21 +303,24 @@ const router = createRouter({
 
 // 3.16
 // 라우터변경되기 바로 직전에 실행되는 부분
-// router.beforeEach((to, from, next) => {
-//   // console.log('from:', from) // 어디에서 이동했는지
-//   // console.log('to:', to) // 어디로 이동하는지
+router.beforeEach((to, from, next) => {
+  // console.log('from:', from) // 어디에서 이동했는지
+  // console.log('to:', to) // 어디로 이동하는지
 
-//   if (to.path === '/') {
-//     next()
-//   } else if (to.path === '/vuex/todo') {
-//     next()
-//   } else {
-//     if (store.getters['user/isLogin']) {
-//       next()
-//     } else {
-//       next('/vuex/todo')
-//     }
-//   }
-// })
+  if (to.path === '/') {
+    next()
+  } else if (to.path === '/login') {
+    next()
+  } else if (to.path === '/about') {
+    if (store.getters['user/isLogin']) {
+      next()
+    } else {
+      store.commit('/user/logout')
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
 
 export default router
