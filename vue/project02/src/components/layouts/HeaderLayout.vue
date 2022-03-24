@@ -36,11 +36,43 @@
             <li class="nav-item">
               <a
                 class="nav-link"
+                :class="{ active: $route.path == '/template/singleedit' }"
+                @click="goToMenu('/template/singleedit')"
+                >SingleEdit</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                :class="{ active: $route.path == '/template/multipleedit' }"
+                @click="goToMenu('/template/multipleedit')"
+                >MultipleEditView</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                :class="{ active: $route.path == '/template/masterdetail' }"
+                @click="goToMenu('/template/masterdetail')"
+                >MasterDetail</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                :class="{ active: $route.path == '/template/shuttle' }"
+                @click="goToMenu('/template/shuttle')"
+                >Shuttle</a
+              >
+            </li>
+            <!-- <li class="nav-item">
+              <a
+                class="nav-link"
                 :class="{ active: $route.path == '/advanced/mixin' }"
                 @click="goToMenu('/advanced/mixin')"
                 >Mixins</a
               >
-            </li>
+            </li> -->
           </ul>
           <div class="d-flex">
             <span v-if="userInfo.name" class="text-white">{{

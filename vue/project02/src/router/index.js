@@ -261,6 +261,38 @@ const routes = [
       )
   },
   {
+    path: '/template/singleedit',
+    name: 'SingleEditView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/SingleEditView.vue'
+      )
+  },
+  {
+    path: '/template/multipleedit',
+    name: 'MultipleEditView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/MultipleEditView.vue'
+      )
+  },
+  {
+    path: '/template/masterdetail',
+    name: 'MasterDetailView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/MasterDetailView.vue'
+      )
+  },
+  {
+    path: '/template/shuttle',
+    name: 'ShuttleView',
+    component: () =>
+      import(
+        /* webpackChunkName: "template" */ '../views/7_template/ShuttleView.vue'
+      )
+  },
+  {
     // 생성하는 페이지로 기능 합쳐서 구현할수도 있다
     path: '/template/change',
     name: 'ChangeView',
