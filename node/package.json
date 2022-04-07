@@ -1,0 +1,16 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "11_app_mysql.js",
+  "scripts": {
+    "test": "nodemon 11_app_mysql.js"
+  },
+  "author": "aestas kwak",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
