@@ -3,14 +3,19 @@ const sql = require("./sql");
 
 // 10개 pool을 만들어서 돌아가면서 사용
 const pool = mysql.createPool({
-  host: "localhost",
-  port: 3306,
-  user: "aestas",
-  password: "Kloplo990@",
-  database: "dev",
-  connectionLimit: 10,
+  host: process.env.MYSQL_HOST,
+  port: process.env.MYSQL_PORT,
+  user: process.env.MYSQL_USERNAME,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DB,
+  connectionLimit: process.env.MYSQL_LIMIT,
 });
-
+// MYSQL_HOST=localhost
+// MYSQL_PORT=3306
+// MYSQL_USERNAME=aestas
+// MYSQL_PASSWORD=Kloplo990@
+// MYSQL_DB=dev
+// MYSQL_LIMIT=10
 /* 쿼리문을 실행하고 결과를 반환하는 함수 */
 const query = async (alias, values) => {
   return new Promise((resolve, reject) =>
